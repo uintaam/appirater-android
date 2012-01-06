@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 /*
  * @source https://github.com/sbstrm/appirater-android
- * @license MIT
+ * @license MIT/X11
  * 
  * Copyright (c) 2011 sbstrm Y.K.
  *
