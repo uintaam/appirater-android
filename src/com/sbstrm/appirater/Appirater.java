@@ -81,7 +81,7 @@ public class Appirater {
 
         LinearLayout layout = (LinearLayout)LayoutInflater.from(mContext).inflate(R.layout.appirater, null);
         
-        TextView tv = new TextView(mContext);
+        TextView tv = (TextView) layout.findViewById(R.id.message);
         tv.setText(String.format(mContext.getString(R.string.rate_message), appName));
         
         Button rateButton = (Button) layout.findViewById(R.id.rate);
