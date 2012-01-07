@@ -21,8 +21,16 @@ This library is distributed under the terms of the MIT/X11.
 While not required, I greatly encourage and appreciate any improvements that you make
 to this library be contributed back for the benefit of all who use Appirater.
 
+Credits
+-------
+Orginal iPhone Appirater By [Arash Payan] [arash]
+
+Gradient button style by [Folkert Jongbloed] [folkert]
+
+Also, thanks to [Chris Hager] [chrishager] who created AppRater for android
+
 [appirater]: https://github.com/arashpayan/appirater/
 [sbstrm]: http://sbstrm.co.jp
-
-Gradient button style by Folkert Jongbloed - http://www.dibbus.com/2011/02/gradient-buttons-for-android/
-Also, thanks to Chris Hager who created the orginal android Apprater https://github.com/metachris/android-apprater
+[arash]: http://arashpayan.com/
+[folkert]: http://www.dibbus.com/2011/02/gradient-buttons-for-android/
+[chrishager]: https://github.com/metachris/android-apprater
