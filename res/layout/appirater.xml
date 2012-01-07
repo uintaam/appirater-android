@@ -1,8 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
+	android:layout_width="300dp"
 	android:layout_height="fill_parent"
 	android:orientation="vertical"
-	android:layout_margin="20dp"
 	android:padding="10dp"
 >
 		<TextView android:id="@+id/message"
