@@ -12,7 +12,7 @@ Getting Started
 
 License
 -------
-Copyright 2010. [sbstrm Y.K.] [sbstrm].
+Copyright 2011 [sbstrm] [sbstrm].
 This library is distributed under the terms of the MIT/X11.
 
 While not required, I greatly encourage and appreciate any improvements that you make
