@@ -75,7 +75,7 @@ public class Appirater {
     }   
     
     private static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
-    	String appName = mContext.getString(R.string.app_name);
+    	String appName = mContext.getString(R.string.app_title);
         final Dialog dialog = new Dialog(mContext);
         dialog.setTitle(String.format(mContext.getString(R.string.rate_title), appName));
 

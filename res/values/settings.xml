@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name"></string>
+    <string name="app_title">Your App Name</string>
     <string name="days_until_prompt">30</string>
     <string name="launches_until_prompt">15</string>
     
