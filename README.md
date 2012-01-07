@@ -1,8 +1,11 @@
 Introduction
 ------------
-Appirater is an android library based off the original Appirater By Arash Payan [Appirater iPhone] [appirater].  that you can drop into any android app that will help remind your users
-to review your app on the android Market. Like it's iPhone counterpart the code is released under the MIT/X11, so feel free to
-modify and share your changes with the world.
+Appirater is an android library based off the original Appirater By Arash Payan [Appirater iPhone] [appirater]. The goal is to 
+create a cleanly designed App Rating prompt that you can drop into any android app that will help remind your users to 
+review your app on the android Market.
+
+Like it's iPhone counterpart the code is released under the MIT/X11, so feel free to modify and share your changes with 
+the world.
 
 Getting Started
 ---------------
