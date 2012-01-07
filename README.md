@@ -10,7 +10,7 @@ the world.
 Getting Started
 ---------------
 1. Include the AppirterAndroid library in your project.
-2. Adjust the settings.xml to your desired preference.
+2. Copy the settings.xml in to your projects /res/values/ folder adjust the settings.xml to your desired preference.
 3. Add Appirater.appLaunched(this); to the onCreate method in your main Activity.
 
 License
