@@ -66,7 +66,8 @@ public class Appirater {
         
         // Wait at least n days before opening
         if (launch_count >= Integer.parseInt(mContext.getString(R.string.launches_until_prompt))) {
-            if (System.currentTimeMillis() >= date_firstLaunch +  (Integer.parseInt(mContext.getString(R.string.days_until_prompt)) * 24 * 60 * 60 * 1000)) {
+        	Long millisecondsToWait = Long.parseLong(mContext.getString(R.string.days_until_prompt)) * 24 * 60 * 60 * 1000;
+            if (System.currentTimeMillis() >= (date_firstLaunch + millisecondsToWait)) {
                 showRateDialog(mContext, editor);
             }
         }
