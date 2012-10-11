@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rate_title">Bewerte %s</string>
+    <string name="rate_message">Wenn Sie %s gerne nutzen, würden Sie sich bitte einen Moment Zeit nehmen, um zu bewerten? Es dauert nicht mehr als eine Minute. Vielen Dank für Ihre Unterstützung!</string>
+    <string name="rate">Bewerte %s</string>
+    <string name="rate_later">Später erinnern</string>
+    <string name="rate_cancel">Nein, Danke</string>
+</resources>
