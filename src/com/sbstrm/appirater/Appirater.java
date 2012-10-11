@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -103,7 +102,6 @@ public class Appirater {
     	String appName = mContext.getString(R.string.app_title);
         final Dialog dialog = new Dialog(mContext);
         
-        Log.d("TEST D", Float.toString(mContext.getResources().getDisplayMetrics().density));
         if (android.os.Build.VERSION.RELEASE.startsWith("1.") || android.os.Build.VERSION.RELEASE.startsWith("2.0") || android.os.Build.VERSION.RELEASE.startsWith("2.1")){
         	//No dialog title on pre-froyo devices
         	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
