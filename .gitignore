@@ -2,4 +2,5 @@
 bin/
 gen/
 doc/
+.settings/
 res/values/settings.xml
