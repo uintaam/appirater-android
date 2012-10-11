@@ -7,6 +7,8 @@ review your app on the android Market.
 Like it's iPhone counterpart the code is released under the MIT/X11, so feel free to modify and share your changes with 
 the world.
 
+![screenshot](https://github.com/sbstrm/appirater-android/raw/master/screenshot.png)
+
 Getting Started
 ---------------
 1. Include the AppirterAndroid library in your project.
