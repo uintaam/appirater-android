@@ -1,13 +1,19 @@
 package com.sbstrm.appirater;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -92,10 +98,26 @@ public class Appirater {
         editor.commit();
     }   
     
-    private static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
+	@SuppressLint("NewApi")
+	private static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
     	String appName = mContext.getString(R.string.app_title);
         final Dialog dialog = new Dialog(mContext);
-        dialog.setTitle(String.format(mContext.getString(R.string.rate_title), appName));
+        
+        Log.d("TEST D", Float.toString(mContext.getResources().getDisplayMetrics().density));
+        if (android.os.Build.VERSION.RELEASE.startsWith("1.") || android.os.Build.VERSION.RELEASE.startsWith("2.0") || android.os.Build.VERSION.RELEASE.startsWith("2.1")){
+        	//No dialog title on pre-froyo devices
+        	dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        }else if(mContext.getResources().getDisplayMetrics().densityDpi == DisplayMetrics.DENSITY_LOW || mContext.getResources().getDisplayMetrics().densityDpi == DisplayMetrics.DENSITY_MEDIUM){
+        	Display display = ((WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+        	int rotation = display.getRotation();
+        	if(rotation == 90 || rotation == 270){
+        		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        	}else{
+        		dialog.setTitle(String.format(mContext.getString(R.string.rate_title), appName));
+        	}
+        }else{
+        	dialog.setTitle(String.format(mContext.getString(R.string.rate_title), appName));
+        }
 
         LinearLayout layout = (LinearLayout)LayoutInflater.from(mContext).inflate(R.layout.appirater, null);
         
