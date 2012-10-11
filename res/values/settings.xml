@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Change the market_url for other markets i.e. Amazon App Store
+    	Google Play = market://details?id=%s
+    	Amazon App Store = http://www.amazon.com/gp/mas/dl/android?p=%s
+     -->
+    <string name="market_url">market://details?id=%s</string>
     <string name="app_title">Your App Name</string>
     <string name="days_until_prompt">30</string>
     <string name="launches_until_prompt">15</string>

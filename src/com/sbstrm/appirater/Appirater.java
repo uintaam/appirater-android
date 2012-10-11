@@ -106,7 +106,7 @@ public class Appirater {
         rateButton.setText(String.format(mContext.getString(R.string.rate), appName));
         rateButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + mContext.getPackageName())));
+                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(mContext.getString(R.string.market_url), mContext.getPackageName()))));
                 if (editor != null) {
                     editor.putBoolean(PREF_RATE_CLICKED, true);
                     editor.commit();
