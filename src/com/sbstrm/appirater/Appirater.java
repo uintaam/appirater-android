@@ -27,6 +27,10 @@ import android.widget.TextView;
 
 public class Appirater {
 	
+	
+	private static final String DATE_REMINDER_PRESSED = "appirator.reminder.date.pressed";
+	private static final String REMIND_LATER = "appirator.remind.later";
+	
     public static void appLaunched(Context mContext) {
     	int testMode = Integer.parseInt(mContext.getString(R.string.test_mode));
         SharedPreferences prefs = mContext.getSharedPreferences(mContext.getPackageName()+".apprater", 0);
@@ -44,6 +48,9 @@ public class Appirater {
 
         // Get date of first launch
         long date_firstLaunch = prefs.getLong("date_firstlaunch", 0);
+        
+		// GEt reminder date launch
+		long date_reminder_launch = prefs.getLong(DATE_REMINDER_PRESSED, 0);
         
         try{
 	        int appVersionCode = mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0).versionCode;
@@ -66,10 +73,30 @@ public class Appirater {
         
         // Wait at least n days before opening
         if (launch_count >= Integer.parseInt(mContext.getString(R.string.launches_until_prompt))) {
-        	Long millisecondsToWait = Long.parseLong(mContext.getString(R.string.days_until_prompt)) * 24 * 60 * 60 * 1000;
-            if (System.currentTimeMillis() >= (date_firstLaunch + millisecondsToWait)) {
-                showRateDialog(mContext, editor);
-            }
+        	
+			long daysUntilPrompt = Long.parseLong(mContext.getString(R.string.days_until_prompt));
+			long timeReminding = Long.parseLong(mContext.getString(R.string.time_before_reminding));
+			boolean remindLater = prefs.getBoolean(REMIND_LATER, false);
+        	
+			long millisecondsToWait = daysUntilPrompt * 24 * 60 * 60 * 1000;
+
+			long remindTimeToWait = timeReminding * 24 * 60 * 60 * 1000;
+
+			long timeTaken = date_firstLaunch + millisecondsToWait;
+			long currentTime = System.currentTimeMillis();
+
+			if (remindLater) {
+				long remindTimeTaken = remindTimeToWait + date_reminder_launch;
+				if (currentTime >= remindTimeTaken) {
+					showRateDialog(mContext, editor);
+				}
+
+			} else {
+
+				if (currentTime >= timeTaken) {
+					showRateDialog(mContext, editor);
+				}
+			}
         }
         
         editor.commit();
@@ -102,6 +129,11 @@ public class Appirater {
         rateLaterButton.setText(mContext.getString(R.string.rate_later));
         rateLaterButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
+            	if (editor != null) {
+            		editor.putBoolean(REMIND_LATER, true);
+    				editor.putLong(DATE_REMINDER_PRESSED,System.currentTimeMillis());
+    				editor.commit();
+				}
                 dialog.dismiss();
             }
         });
