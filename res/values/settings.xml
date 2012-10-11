@@ -3,6 +3,7 @@
     <string name="app_title">Your App Name</string>
     <string name="days_until_prompt">30</string>
     <string name="launches_until_prompt">15</string>
+    <!-- Set this to 0 to remind every launch -->
     <string name="days_before_reminding">3</string>
     <!-- Change to 1 to show every time, for testing -->
     <string name="test_mode">0</string>
