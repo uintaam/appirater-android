@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-/*
+/*	
  * @source https://github.com/sbstrm/appirater-android
  * @license MIT/X11
  * 
@@ -26,15 +26,18 @@ import android.widget.TextView;
  */
 
 public class Appirater {
-	
-	
-	private static final String DATE_REMINDER_PRESSED = "appirator.reminder.date.pressed";
-	private static final String REMIND_LATER = "appirator.remind.later";
+
+	private static final String PREF_LAUNCH_COUNT = "launch_count";
+	private static final String PREF_RATE_CLICKED = "rateclicked";
+	private static final String PREF_DONT_SHOW = "dontshow";
+	private static final String PREF_DATE_REMINDER_PRESSED = "date_reminder_pressed";
+	private static final String PREF_DATE_FIRST_LAUNCHED = "date_firstlaunch";
+	private static final String PREF_APP_VERSION_CODE = "versioncode";
 	
     public static void appLaunched(Context mContext) {
     	int testMode = Integer.parseInt(mContext.getString(R.string.test_mode));
         SharedPreferences prefs = mContext.getSharedPreferences(mContext.getPackageName()+".apprater", 0);
-        if(testMode == 0 && (prefs.getBoolean("dontshow", false) || prefs.getBoolean("rateclicked", false))) {return;}
+        if(testMode == 0 && (prefs.getBoolean(PREF_DONT_SHOW, false) || prefs.getBoolean(PREF_RATE_CLICKED, false))) {return;}
         
         SharedPreferences.Editor editor = prefs.edit();
         
@@ -44,57 +47,44 @@ public class Appirater {
         }
         
         // Increment launch counter
-        long launch_count = prefs.getLong("launch_count", 0);
+        long launch_count = prefs.getLong(PREF_LAUNCH_COUNT, 0);
 
         // Get date of first launch
-        long date_firstLaunch = prefs.getLong("date_firstlaunch", 0);
+        long date_firstLaunch = prefs.getLong(PREF_DATE_FIRST_LAUNCHED, 0);
         
-		// GEt reminder date launch
-		long date_reminder_launch = prefs.getLong(DATE_REMINDER_PRESSED, 0);
+		// Get reminder date pressed
+		long date_reminder_pressed = prefs.getLong(PREF_DATE_REMINDER_PRESSED, 0);
         
         try{
 	        int appVersionCode = mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0).versionCode;
-	        if(prefs.getInt("versioncode", 0)  != appVersionCode){
+	        if(prefs.getInt(PREF_APP_VERSION_CODE, 0)  != appVersionCode){
 	        	//Reset the launch count to help assure users are rating based on the latest version. 
 	        	launch_count = 0;
 	        }
-	        editor.putInt("versioncode", appVersionCode);
+	        editor.putInt(PREF_APP_VERSION_CODE, appVersionCode);
         }catch(Exception e){
         	//do nothing
         }
         
         launch_count++;
-        editor.putLong("launch_count", launch_count);
+        editor.putLong(PREF_LAUNCH_COUNT, launch_count);
 
         if (date_firstLaunch == 0) {
             date_firstLaunch = System.currentTimeMillis();
-            editor.putLong("date_firstlaunch", date_firstLaunch);
+            editor.putLong(PREF_DATE_FIRST_LAUNCHED, date_firstLaunch);
         }
         
         // Wait at least n days before opening
         if (launch_count >= Integer.parseInt(mContext.getString(R.string.launches_until_prompt))) {
-        	
-			long daysUntilPrompt = Long.parseLong(mContext.getString(R.string.days_until_prompt));
-			long timeReminding = Long.parseLong(mContext.getString(R.string.time_before_reminding));
-			boolean remindLater = prefs.getBoolean(REMIND_LATER, false);
-        	
-			long millisecondsToWait = daysUntilPrompt * 24 * 60 * 60 * 1000;
-
-			long remindTimeToWait = timeReminding * 24 * 60 * 60 * 1000;
-
-			long timeTaken = date_firstLaunch + millisecondsToWait;
-			long currentTime = System.currentTimeMillis();
-
-			if (remindLater) {
-				long remindTimeTaken = remindTimeToWait + date_reminder_launch;
-				if (currentTime >= remindTimeTaken) {
+			long millisecondsToWait = Long.parseLong(mContext.getString(R.string.days_until_prompt)) * 24 * 60 * 60 * 1000;			
+			if (System.currentTimeMillis() >= (date_firstLaunch + millisecondsToWait)) {
+				if(date_reminder_pressed == 0){
 					showRateDialog(mContext, editor);
-				}
-
-			} else {
-
-				if (currentTime >= timeTaken) {
-					showRateDialog(mContext, editor);
+				}else{
+					long remindMillisecondsToWait = Long.parseLong(mContext.getString(R.string.days_before_reminding)) * 24 * 60 * 60 * 1000;
+					if(System.currentTimeMillis() >= (remindMillisecondsToWait + date_reminder_pressed)){
+						showRateDialog(mContext, editor);
+					}
 				}
 			}
         }
@@ -118,7 +108,7 @@ public class Appirater {
             public void onClick(View v) {
                 mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + mContext.getPackageName())));
                 if (editor != null) {
-                    editor.putBoolean("rateclicked", true);
+                    editor.putBoolean(PREF_RATE_CLICKED, true);
                     editor.commit();
                 }
                 dialog.dismiss();
@@ -130,8 +120,7 @@ public class Appirater {
         rateLaterButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
             	if (editor != null) {
-            		editor.putBoolean(REMIND_LATER, true);
-    				editor.putLong(DATE_REMINDER_PRESSED,System.currentTimeMillis());
+    				editor.putLong(PREF_DATE_REMINDER_PRESSED,System.currentTimeMillis());
     				editor.commit();
 				}
                 dialog.dismiss();
@@ -143,7 +132,7 @@ public class Appirater {
         cancelButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 if (editor != null) {
-                    editor.putBoolean("dontshow", true);
+                    editor.putBoolean(PREF_DONT_SHOW, true);
                     editor.commit();
                 }
                 dialog.dismiss();
