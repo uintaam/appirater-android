@@ -75,13 +75,13 @@ public class Appirater {
         }
         
         // Wait at least n days before opening
-        if (launch_count >= Integer.parseInt(mContext.getString(R.string.launches_until_prompt))) {
-			long millisecondsToWait = Long.parseLong(mContext.getString(R.string.days_until_prompt)) * 24 * 60 * 60 * 1000;			
+        if (launch_count >= mContext.getResources().getInteger(R.integer.launches_until_prompt)) {
+			long millisecondsToWait = mContext.getResources().getInteger(R.integer.days_until_prompt) * 24 * 60 * 60 * 1000L;			
 			if (System.currentTimeMillis() >= (date_firstLaunch + millisecondsToWait)) {
 				if(date_reminder_pressed == 0){
 					showRateDialog(mContext, editor);
 				}else{
-					long remindMillisecondsToWait = Long.parseLong(mContext.getString(R.string.days_before_reminding)) * 24 * 60 * 60 * 1000;
+					long remindMillisecondsToWait = mContext.getResources().getInteger(R.integer.days_before_reminding) * 24 * 60 * 60 * 1000L;
 					if(System.currentTimeMillis() >= (remindMillisecondsToWait + date_reminder_pressed)){
 						showRateDialog(mContext, editor);
 					}
