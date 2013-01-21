@@ -35,13 +35,13 @@ public class Appirater {
 	private static final String PREF_APP_VERSION_CODE = "versioncode";
 	
     public static void appLaunched(Context mContext) {
-    	int testMode = Integer.parseInt(mContext.getString(R.string.test_mode));
+    	boolean testMode = mContext.getResources().getBoolean(R.bool.test_mode);
         SharedPreferences prefs = mContext.getSharedPreferences(mContext.getPackageName()+".apprater", 0);
-        if(testMode == 0 && (prefs.getBoolean(PREF_DONT_SHOW, false) || prefs.getBoolean(PREF_RATE_CLICKED, false))) {return;}
+        if(testMode && (prefs.getBoolean(PREF_DONT_SHOW, false) || prefs.getBoolean(PREF_RATE_CLICKED, false))) {return;}
         
         SharedPreferences.Editor editor = prefs.edit();
         
-        if(testMode == 1){
+        if(testMode){
         	showRateDialog(mContext, editor);
         	return;
         }

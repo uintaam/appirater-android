@@ -10,6 +10,6 @@
     <string name="launches_until_prompt">15</string>
     <!-- Set this to 0 to remind every launch -->
     <string name="days_before_reminding">3</string>
-    <!-- Change to 1 to show every time, for testing -->
-    <string name="test_mode">0</string>
+    <!-- Change to true to show every time, for testing -->
+    <bool name="test_mode">false</bool>
 </resources>
