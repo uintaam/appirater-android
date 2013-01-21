@@ -37,7 +37,7 @@ public class Appirater {
     public static void appLaunched(Context mContext) {
     	boolean testMode = mContext.getResources().getBoolean(R.bool.test_mode);
         SharedPreferences prefs = mContext.getSharedPreferences(mContext.getPackageName()+".apprater", 0);
-        if(testMode && (prefs.getBoolean(PREF_DONT_SHOW, false) || prefs.getBoolean(PREF_RATE_CLICKED, false))) {return;}
+        if(!testMode && (prefs.getBoolean(PREF_DONT_SHOW, false) || prefs.getBoolean(PREF_RATE_CLICKED, false))) {return;}
         
         SharedPreferences.Editor editor = prefs.edit();
         
