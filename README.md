@@ -21,7 +21,7 @@ Users upgrading to 1.1+, please remove your old /res/values/settings.xml file fr
 
 License
 -------
-Copyright 2011 [sbstrm] [sbstrm].
+Copyright 2011-2013 [sbstrm] [sbstrm].
 This library is distributed under the terms of the MIT/X11.
 
 While not required, I greatly encourage and appreciate any improvements that you make
