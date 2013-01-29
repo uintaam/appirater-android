@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="appiratorButton" parent="android:Widget.Button">
+        <item name="android:background">@drawable/button_appirator</item>
+        <item name="android:textColor">@color/appirator_button_text_color</item>
+    </style>
+</resources>
