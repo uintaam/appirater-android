@@ -40,7 +40,7 @@ public class Appirater {
 	private static final String PREF_APP_VERSION_CODE = "versioncode";
 	
     public static void appLaunched(Context mContext) {
-    	boolean testMode = mContext.getResources().getBoolean(R.bool.test_mode);
+    	boolean testMode = mContext.getResources().getBoolean(R.bool.appirator_test_mode);
         SharedPreferences prefs = mContext.getSharedPreferences(mContext.getPackageName()+".appirater", 0);
         if(!testMode && (prefs.getBoolean(PREF_DONT_SHOW, false) || prefs.getBoolean(PREF_RATE_CLICKED, false))) {return;}
         
@@ -80,13 +80,13 @@ public class Appirater {
         }
         
         // Wait at least n days before opening
-        if (launch_count >= mContext.getResources().getInteger(R.integer.launches_until_prompt)) {
-			long millisecondsToWait = mContext.getResources().getInteger(R.integer.days_until_prompt) * 24 * 60 * 60 * 1000L;			
+        if (launch_count >= mContext.getResources().getInteger(R.integer.appirator_launches_until_prompt)) {
+			long millisecondsToWait = mContext.getResources().getInteger(R.integer.appirator_days_until_prompt) * 24 * 60 * 60 * 1000L;			
 			if (System.currentTimeMillis() >= (date_firstLaunch + millisecondsToWait)) {
 				if(date_reminder_pressed == 0){
 					showRateDialog(mContext, editor);
 				}else{
-					long remindMillisecondsToWait = mContext.getResources().getInteger(R.integer.days_before_reminding) * 24 * 60 * 60 * 1000L;
+					long remindMillisecondsToWait = mContext.getResources().getInteger(R.integer.appirator_days_before_reminding) * 24 * 60 * 60 * 1000L;
 					if(System.currentTimeMillis() >= (remindMillisecondsToWait + date_reminder_pressed)){
 						showRateDialog(mContext, editor);
 					}
@@ -99,7 +99,7 @@ public class Appirater {
     
 	@SuppressLint("NewApi")
 	private static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
-    	String appName = mContext.getString(R.string.app_title);
+    	String appName = mContext.getString(R.string.appirator_app_title);
         final Dialog dialog = new Dialog(mContext);
         
         if (android.os.Build.VERSION.RELEASE.startsWith("1.") || android.os.Build.VERSION.RELEASE.startsWith("2.0") || android.os.Build.VERSION.RELEASE.startsWith("2.1")){
@@ -126,7 +126,7 @@ public class Appirater {
         rateButton.setText(String.format(mContext.getString(R.string.rate), appName));
         rateButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(mContext.getString(R.string.market_url), mContext.getPackageName()))));
+                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(mContext.getString(R.string.appirator_market_url), mContext.getPackageName()))));
                 if (editor != null) {
                     editor.putBoolean(PREF_RATE_CLICKED, true);
                     editor.commit();

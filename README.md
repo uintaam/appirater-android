@@ -11,9 +11,13 @@ the world.
 
 Getting Started
 ---------------
-1. Include the AppirterAndroid library in your project.
-2. Copy the settings.xml in to your projects /res/values/ folder adjust the settings.xml to your desired preference.
+1. Include the AppiraterAndroid library in your project.  Under your projects preferences -> Library section just click add and select the appirater-android library. 
+2. Copy the /res/values/appirater-settings.xml from the AppiraterAndroid library in to your projects /res/values/ folder and adjust the settings to your preference.
 3. Add Appirater.appLaunched(this); to the onCreate method in your main Activity.
+
+Upgrading to 1.1+
+----------------
+Users upgrading to 1.1+ from any unnumbered version, please remove your old /res/values/settings.xml file from your application and add follow step 2 under "Getting Started" above.
 
 License
 -------
