@@ -17,7 +17,7 @@ Getting Started
 
 Upgrading to 1.1+
 ----------------
-Users upgrading to 1.1+ from any unnumbered version, please remove your old /res/values/settings.xml file from your application and add follow step 2 under "Getting Started" above.
+Users upgrading to 1.1+, please remove your old /res/values/settings.xml file from your application and add follow step 2 under "Getting Started" above.
 
 License
 -------
