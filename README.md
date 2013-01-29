@@ -29,7 +29,7 @@ to this library be contributed back for the benefit of all who use Appirater.
 
 Credits
 -------
-Orginal iPhone Appirater By [Arash Payan] [arash]
+Orginal iPhone Appirater and translations By [Arash Payan] [arash]
 
 Gradient button style by [Folkert Jongbloed] [folkert]
 
