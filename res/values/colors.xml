@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appirator_button_start_color">#ff449def</color>
+    <color name="appirator_button_end_color">#ff2f6699</color>
+    <color name="appirator_button_text_color">#ffffffff</color>
+</resources>

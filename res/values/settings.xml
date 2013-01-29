@@ -6,10 +6,10 @@
      -->
     <string name="market_url">market://details?id=%s</string>
     <string name="app_title">Your App Name</string>
-    <string name="days_until_prompt">30</string>
-    <string name="launches_until_prompt">15</string>
+    <integer name="days_until_prompt">30</integer>
+    <integer name="launches_until_prompt">15</integer>
     <!-- Set this to 0 to remind every launch -->
-    <string name="days_before_reminding">3</string>
-    <!-- Change to 1 to show every time, for testing -->
-    <string name="test_mode">0</string>
+    <integer name="days_before_reminding">3</integer>
+    <!-- Change to true to show every time, for testing -->
+    <bool name="test_mode">false</bool>
 </resources>
