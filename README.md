@@ -15,6 +15,25 @@ Getting Started
 2. Copy the /res/values/appirater-settings.xml from the AppiraterAndroid library in to your projects /res/values/ folder and adjust the settings to your preference.
 3. Add Appirater.appLaunched(this); to the onCreate method in your main Activity.
 
+Getting Started with Maven
+--------------------------
+1. Install the library to you local repository using `mvn clean install`
+2. Add the library as a dependency to your app:
+
+	```
+	<dependency>
+	    <groupId>com.sbstrm</groupId>
+	    <artifactId>appirater</artifactId>
+	    <type>apklib</type>
+	    <version>1.0</version>
+	</dependency>
+	```
+
+3. Copy the /res/values/appirater-settings.xml from the AppiraterAndroid library in to your projects /res/values/ folder and adjust the settings to your preference.
+4. Add Appirater.appLaunched(this); to the onCreate method in your main Activity.
+
+
+
 Upgrading to 1.1+
 ----------------
 Users upgrading to 1.1+, please remove your old /res/values/settings.xml file from your application and add follow step 2 under "Getting Started" above.
