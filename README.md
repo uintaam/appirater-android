@@ -9,14 +9,14 @@ review your app on the android Market.
 Like it's iPhone counterpart the code is released under the MIT/X11, so feel free to modify and share your changes with 
 the world.
 
-Getting Started
----------------
+Getting Started (Eclipse)
+-------------------------
 1. Include the AppiraterAndroid library in your project.  Under your projects preferences -> Library section just click add and select the appirater-android library. 
 2. Copy the /res/values/appirater-settings.xml from the AppiraterAndroid library in to your projects /res/values/ folder and adjust the settings to your preference.
 3. Add Appirater.appLaunched(this); to the onCreate method in your main Activity.
 
-Getting Started with Maven
---------------------------
+Getting Started (Maven)
+-----------------------
 1. Install the library to you local repository using `mvn clean install`
 2. Add the library as a dependency to your app:
 
