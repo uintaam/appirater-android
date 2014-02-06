@@ -8,6 +8,7 @@
     <string name="appirator_market_url">market://details?id=%s</string>
     <integer name="appirator_days_until_prompt">30</integer>
     <integer name="appirator_launches_until_prompt">15</integer>
+    <integer name="appirator_events_until_prompt">15</integer>
     <!-- Set this to 0 to remind every launch -->
     <integer name="appirator_days_before_reminding">3</integer>
     <!-- Change to true to show every time, for testing -->
