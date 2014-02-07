@@ -61,3 +61,4 @@ Also, thanks to [Chris Hager] [chrishager] who created AppRater for android
 [arash]: http://arashpayan.com/
 [folkert]: http://www.dibbus.com/2011/02/gradient-buttons-for-android/
 [chrishager]: https://github.com/metachris/android-apprater
+[tokou]: https://github.com/tokou
