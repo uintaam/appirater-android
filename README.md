@@ -34,7 +34,7 @@ Getting Started (Maven)
 
 Significant Events
 ------------------
-Thanks to [Tarek Belkahia] [tokou] version 1.2 of AppiraterAndroid adds a Significant Event counter.  Set ```appirator_events_until_prompt``` in your appirater-settings.xml and call ```Appirater.significantEvent(context)``` each time a "Significant Event" occurs in your application.  Once the defined number of "Significant Events" have occurred the user will be prompted to rate the app.
+Thanks to [Tarek Belkahia] [tokou] version 1.2 of AppiraterAndroid adds a Significant Event counter.  Set ```appirator_events_until_prompt``` in your appirater-settings.xml and call ```Appirater.significantEvent(context)``` each time a "Significant Event" occurs in your application.  Once the defined number of "Significant Events" have occurred the user will be prompted to rate the app next launch.
 
 Upgrading to 1.1+
 ----------------
@@ -61,3 +61,4 @@ Also, thanks to [Chris Hager] [chrishager] who created AppRater for android
 [arash]: http://arashpayan.com/
 [folkert]: http://www.dibbus.com/2011/02/gradient-buttons-for-android/
 [chrishager]: https://github.com/metachris/android-apprater
+[tokou]: https://github.com/tokou
