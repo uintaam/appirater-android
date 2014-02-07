@@ -103,6 +103,13 @@ public class Appirater {
         editor.commit();
     }   
 
+    public static void rateApp(Context mContext)
+    {
+        SharedPreferences prefs = mContext.getSharedPreferences(mContext.getPackageName()+".appirater", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        rateApp(mContext, editor);
+    }
+
 	public static void significantEvent(Context mContext) {
         boolean testMode = mContext.getResources().getBoolean(R.bool.appirator_test_mode);
         SharedPreferences prefs = mContext.getSharedPreferences(mContext.getPackageName()+".appirater", 0);
@@ -111,6 +118,14 @@ public class Appirater {
         long event_count = prefs.getLong(PREF_EVENT_COUNT, 0);
         event_count++;
         prefs.edit().putLong(PREF_EVENT_COUNT, event_count).apply();
+    }
+
+    private static void rateApp(Context mContext, final SharedPreferences.Editor editor) {
+        mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(mContext.getString(R.string.appirator_market_url), mContext.getPackageName()))));
+        if (editor != null) {
+            editor.putBoolean(PREF_RATE_CLICKED, true);
+            editor.commit();
+        }
     }
 
 	@SuppressLint("NewApi")
@@ -142,11 +157,7 @@ public class Appirater {
         rateButton.setText(String.format(mContext.getString(R.string.rate), appName));
         rateButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(mContext.getString(R.string.appirator_market_url), mContext.getPackageName()))));
-                if (editor != null) {
-                    editor.putBoolean(PREF_RATE_CLICKED, true);
-                    editor.commit();
-                }
+                rateApp(mContext, editor);
                 dialog.dismiss();
             }
         });
