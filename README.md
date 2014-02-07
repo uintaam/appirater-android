@@ -25,18 +25,20 @@ Getting Started (Maven)
 	    <groupId>com.sbstrm</groupId>
 	    <artifactId>appirater</artifactId>
 	    <type>apklib</type>
-	    <version>1.0</version>
+	    <version>1.2</version>
 	</dependency>
 	```
 
 3. Copy the /res/values/appirater-settings.xml from the AppiraterAndroid library in to your projects /res/values/ folder and adjust the settings to your preference.
 4. Add Appirater.appLaunched(this); to the onCreate method in your main Activity.
 
-
+Significant Events
+------------------
+Thanks to [Tarek Belkahia] [tokou] version 1.2 of AppiraterAndroid adds a Significant Event counter.  Set ```appirator_events_until_prompt``` in your appirater-settings.xml and call ```Appirater.significantEvent(context)``` each time a "Significant Event" occurs in your application.  Once the defined number of "Significant Events" have occurred the user will be prompted to rate the app.
 
 Upgrading to 1.1+
 ----------------
-Users upgrading to 1.1+, please remove your old /res/values/settings.xml file from your application and add follow step 2 under "Getting Started" above.
+Users upgrading to 1.1+, please remove your old /res/values/settings.xml file from your application and follow step 2 under "Getting Started" above.
 
 License
 -------
