@@ -1,10 +1,14 @@
+Update 2014-02-09
+-----------------
+This repository has been transferred from https://github.com/sbstrm/appirater-android/ to https://github.com/drewjw81/appirater-android/ all of the old links and URLs now redirect here and no problems should occur, but please update to the new URL when possible.  All licenses have been transferred from sbstrm to me and the code is still released under MIT/X11.  Sorry for any inconvenience. 
+
 Introduction
 ------------
 Appirater is an android library based off the original Appirater By Arash Payan [Appirater iPhone] [appirater]. The goal is to 
 create a cleanly designed App Rating prompt that you can drop into any android app that will help remind your users to 
 review your app on the android Market.
 
-![screenshot](https://raw.github.com/sbstrm/appirater-android/development/screenshot.png)
+![screenshot](https://raw.github.com/drewjw81/appirater-android/development/screenshot.png)
 
 Like it's iPhone counterpart the code is released under the MIT/X11, so feel free to modify and share your changes with 
 the world.
@@ -43,6 +47,7 @@ Users upgrading to 1.1+, please remove your old /res/values/settings.xml file fr
 License
 -------
 Copyright 2011-2013 [sbstrm] [sbstrm].
+Copyright 2014 [drewjw81] [drewjw81].
 This library is distributed under the terms of the MIT/X11.
 
 While not required, I greatly encourage and appreciate any improvements that you make
@@ -58,6 +63,7 @@ Also, thanks to [Chris Hager] [chrishager] who created AppRater for android
 
 [appirater]: https://github.com/arashpayan/appirater/
 [sbstrm]: http://sbstrm.co.jp
+[drewjw81]: https://github.com/drewjw81
 [arash]: http://arashpayan.com/
 [folkert]: http://www.dibbus.com/2011/02/gradient-buttons-for-android/
 [chrishager]: https://github.com/metachris/android-apprater
