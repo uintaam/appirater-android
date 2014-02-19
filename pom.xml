@@ -11,20 +11,20 @@
     <groupId>com.sbstrm</groupId>
     <artifactId>appirater</artifactId>
     <packaging>apklib</packaging>
-    <version>1.0</version>
+    <version>1.3.1</version>
 
     <name>Appirater</name>
     <description>Appirater is an android library based off the original Appirater By Arash Payan.</description>
-    <url>https://github.com/sbstrm/appirater-android</url>
+    <url>https://github.com/drewjw81/appirater-android</url>
     <inceptionYear>2012</inceptionYear>
 
     <developers>
         <developer>
-            <name>sbstrm Ltd.</name>
-            <email>info@sbstrm.co.jp</email>
-            <id>sbstrm</id>
-            <url>https://github.com/sbstrm</url>
-            <timezone>-5</timezone>
+            <name>Andrew Winter</name>
+            <email>drewjw81@gmail.com</email>
+            <id>drewjw81</id>
+            <url>https://github.com/drewjw81</url>
+            <timezone>+9</timezone>
             <roles>
                 <role>developer</role>
             </roles>
@@ -40,9 +40,9 @@
     </licenses>
 
     <scm>
-        <url>http://github.com/sbstrm/appirater-android/</url>
-        <connection>scm:git:git://github.com/sbstrm/appirater-android.git</connection>
-        <developerConnection>scm:git:git@github.com:sbstrm/appirater-android.git</developerConnection>
+        <url>http://github.com/drewjw81/appirater-android/</url>
+        <connection>scm:git:git://github.com/drewjw81/appirater-android.git</connection>
+        <developerConnection>scm:git:git@github.com:drewjw81/appirater-android.git</developerConnection>
     </scm>
 
     <organization>
@@ -52,7 +52,7 @@
 
     <issueManagement>
         <system>GitHub Issues</system>
-        <url>https://github.com/sbstrm/appirater-android/issues</url>
+        <url>https://github.com/drewjw81/appirater-android/issues</url>
     </issueManagement>
 
     <properties>
