@@ -42,11 +42,15 @@ build/
 
 ### old Eclipse specific files
 
+target/
 .project
 .classpath
+/.settings/
 */.settings/*
 .metadata
+bin/
 
+libs/
 
 project.properties
 
