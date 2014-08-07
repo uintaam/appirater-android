@@ -29,6 +29,6 @@ task installArchives(type: Upload) {
         configuration = configurations.default
         pom.groupId = 'com.sbstrm'
         pom.artifactId = 'appirater'
-        pom.version = '1.3.2'
+        pom.version = '1.3.3'
     }
 }
