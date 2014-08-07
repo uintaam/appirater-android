@@ -43,6 +43,7 @@ public class Appirater {
 	private static final String PREF_DATE_REMINDER_PRESSED = "date_reminder_pressed";
 	private static final String PREF_DATE_FIRST_LAUNCHED = "date_firstlaunch";
 	private static final String PREF_APP_VERSION_CODE = "versioncode";
+    private static final String PREF_APP_LOVE_CLICKED= "loveclicked";
 	
     public static void appLaunched(Context mContext) {
     	boolean testMode = mContext.getResources().getBoolean(R.bool.appirator_test_mode);
@@ -52,8 +53,11 @@ public class Appirater {
         SharedPreferences.Editor editor = prefs.edit();
         
         if(testMode){
-        	//showRateDialog(mContext, editor);
-            showLoveDialog(mContext, editor);
+            if (prefs.getBoolean(PREF_APP_LOVE_CLICKED, false)) {
+                showRateDialog(mContext,editor);
+            } else {
+                showLoveDialog(mContext, editor);
+            }
         	return;
         }
         
@@ -95,13 +99,19 @@ public class Appirater {
 			long millisecondsToWait = mContext.getResources().getInteger(R.integer.appirator_days_until_prompt) * 24 * 60 * 60 * 1000L;			
 			if (System.currentTimeMillis() >= (date_firstLaunch + millisecondsToWait) || event_count >= mContext.getResources().getInteger(R.integer.appirator_events_until_prompt)) {
 				if(date_reminder_pressed == 0){
-					//showRateDialog(mContext, editor);
-                    showLoveDialog(mContext, editor);
+                    if (prefs.getBoolean(PREF_APP_LOVE_CLICKED, false)){
+                        showRateDialog(mContext, editor);
+                    } else {
+                        showLoveDialog(mContext, editor);
+                    }
 				}else{
 					long remindMillisecondsToWait = mContext.getResources().getInteger(R.integer.appirator_days_before_reminding) * 24 * 60 * 60 * 1000L;
 					if(System.currentTimeMillis() >= (remindMillisecondsToWait + date_reminder_pressed)){
-						//showRateDialog(mContext, editor);
-                        showLoveDialog(mContext, editor);
+                        if (prefs.getBoolean(PREF_APP_LOVE_CLICKED, false)) {
+                            showRateDialog(mContext, editor);
+                        } else {
+                            showLoveDialog(mContext, editor);
+                        }
 					}
 				}
 			}
@@ -215,6 +225,10 @@ public class Appirater {
 
             @Override
             public void onClick(View v) {
+                if (editor != null) {
+                    editor.putBoolean(PREF_APP_LOVE_CLICKED, true);
+                    editor.commit();
+                }
                 dialog.dismiss();
                 showRateDialog(mContext, editor);
             }

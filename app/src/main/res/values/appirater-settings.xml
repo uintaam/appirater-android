@@ -21,4 +21,5 @@
     <!-- Love App Dialog -->
     <color name="love_button_no_start_color">#e0e0e0</color>
     <color name="love_button_no_pressed_color">#ff449def</color>
+    <color name="love_button_text_color">#000000</color>
 </resources>
