@@ -1,7 +1,58 @@
 *.DS_Store
-target/
+src/main/res/values/settings.xml
+
+
+#built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
 bin/
 gen/
-doc/
-.settings/
-res/values/settings.xml
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+# Eclipse project files
+.classpath
+.project
+
+# Android Studio
+.idea
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+.gradle
+build/
+
+#/gradle
+#
+#/gradlew
+#/gradlew.bat
+
+### old Eclipse specific files
+
+target/
+.project
+.classpath
+/.settings/
+*/.settings/*
+.metadata
+bin/
+
+gen/
+libs/
+
+project.properties
+
+res/values/com_crashlytics_export_strings.xml
