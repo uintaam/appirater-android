@@ -1,5 +1,5 @@
 *.DS_Store
-src/main/res/values/settings.xml
+app/src/main/res/values/settings.xml
 
 
 #built application files
