@@ -5,4 +5,7 @@
     <string name="rate">Yes, Rate %s</string>
     <string name="rate_later">Remind me later</string>
     <string name="rate_cancel">No, Thanks</string>
+    <string name="love_dialog_content">Do you love Pocketbook ?</string>
+    <string name="love_dialog_yes">Yes</string>
+    <string name="love_dialog_no">No</string>
 </resources>
