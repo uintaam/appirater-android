@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.12.+'
+    }
+}
+apply plugin: 'android-library'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'com.android.support:support-v4:18.0.0'
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+}
+
+task installArchives(type: Upload) {
+    description "Installs the artifacts to the local Maven repository."
+    apply plugin: 'maven'
+    repositories.mavenInstaller {
+        configuration = configurations.default
+        pom.groupId = 'com.sbstrm'
+        pom.artifactId = 'appirater'
+        pom.version = '1.3.3'
+    }
+}
