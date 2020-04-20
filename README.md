@@ -1,3 +1,8 @@
+Update 2020-04-20
+-----------------
+I'm unfortunately no longer maintaining this as is probably clear from my years of absence. It's been so long since I've been in the Android space that I'm not even sure what the alternative is to this now so I can't give a recommendation.
+
+
 Update 2014-02-09
 -----------------
 This repository has been transferred from https://github.com/sbstrm/appirater-android/ to https://github.com/drewjw81/appirater-android/ all of the old links and URLs now redirect here and no problems should occur, but please update to the new URL when possible.  All licenses have been transferred from sbstrm to me and the code is still released under MIT/X11.  Sorry for any inconvenience. 
